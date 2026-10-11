@@ -1,0 +1,24 @@
+name: PyAhead
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      fail-on:
+        description: Impact that fails the job (never, breaking, risk, deprecated, any)
+        default: never
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  pyahead:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: diegorusso/pyahead@v0.6.0
+        with:
+          fail-on: ${{ inputs.fail-on || 'never' }}

@@ -1,0 +1,5 @@
+[project]
+name = "legacyapp"
+version = "0.1.0"
+description = "A deliberately dated example project for the PyAhead GitHub Action."
+requires-python = ">=3.9"
